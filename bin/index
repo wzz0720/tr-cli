@@ -1,0 +1,31 @@
+#!/usr/bin/env node --harmony
+'use strict'
+// 定义脚手架的文件路径
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+
+const program = require('commander')
+const pkg = require('../package')
+
+const init = require('../command/init')
+
+// 定义当前版本
+program
+    .version(pkg.version )
+
+// 定义使用方法
+program
+    .usage('<command>')
+
+program
+    .command('init')
+    .description('初始化一个项目')
+    .alias('i')
+    .action((name) => {
+        init(name)
+    })
+
+program.parse(process.argv)
+
+if(!program.args.length){
+  program.help()
+}

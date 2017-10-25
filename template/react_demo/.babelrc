@@ -1,0 +1,13 @@
+{
+    "presets": [
+        "react",
+        ["env", {
+            "targets": {
+              "browsers": ["last 2 versions", "safari >= 7"]
+            },
+            "include": ["transform-es2015-arrow-functions", "es6.map"],
+            "exclude": ["transform-regenerator", "es6.set"]
+          }]
+      ]
+}
+  

@@ -1,0 +1,37 @@
+.header{
+    background: #4489a7;
+    text-align: center;
+    padding: 80px 0;
+    h1{
+        color: rgba(255, 255, 255, 0.87);
+        font-weight: 300;
+        font-size: 96px;
+    };
+    p{
+        color: #fff;
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 28px;
+    }
+}
+.container{
+    width: 80%;
+    margin: 20px auto;
+    h3{
+        font-size: 24px;
+        margin: 20px 0;
+    }
+    ul{
+        color: #555;
+        font-size: 14px;
+        line-height: 28px;
+    }
+    code{
+        background-color: #f7f7f9;
+        border-radius: 5px;
+        padding: 9px 14px;
+        color: #2f6f9f;
+        display: block;
+        margin: 20px 0;
+    }
+}

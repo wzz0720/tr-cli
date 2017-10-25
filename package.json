@@ -1,0 +1,26 @@
+{
+  "name": "react-starter-three",
+  "version": "1.0.0",
+  "description": "\"react scaffold\"",
+  "main": "index.js",
+  "bin": {
+    "t-cli": "bin/index"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0",
+    "cross-spawn": "^5.1.0",
+    "directory-tree": "^2.0.0",
+    "fs-extra": "^4.0.2",
+    "mkdirp": "^0.5.1",
+    "react": "^15.6.1",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
