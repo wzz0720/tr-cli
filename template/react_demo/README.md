@@ -16,6 +16,7 @@
 <code>npm run test</code>
 <p>上线打包</p>
 <code>npm run build</code>
+
 ### 其他
 <p>1、代理配置在package.json中proxy字段</p>
 <p>2、webpack配置在/config/目录中，*.dev.js为开发环境配置，*.dll.js为预打包配置，*.prod.js为上线生产打包</p>
