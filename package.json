@@ -1,6 +1,6 @@
 {
   "name": "tr-cli",
-  "version": "1.0.0",
+  "version": "1.0.0.1",
   "description": "creat react,react-cli,tr-cli",
   "main": "index.js",
   "bin": {
