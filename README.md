@@ -1,9 +1,9 @@
-## T-CLI
+## TR-CLI
 #### 一个全局的命令行工具用来创建一个新的项目
 ### 安装
-<code>npm install -g t-cli </code>
+<code>npm install -g tr-cli </code>
 ### 创建一个应用程序 
-<code>t-cli init
+<code>tr-cli init
 
 name:myapp          //你的项目名字myapp
 

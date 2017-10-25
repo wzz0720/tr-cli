@@ -1,10 +1,10 @@
 {
   "name": "react-starter-three",
   "version": "1.0.0",
-  "description": "\"react scaffold\"",
+  "description": "creat react,react-cli,tr-cli",
   "main": "index.js",
   "bin": {
-    "t-cli": "bin/index"
+    "tr-cli": "./bin/index"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
