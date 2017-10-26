@@ -34,7 +34,7 @@ app.use(express.static(path.resolve(__dirname,'./public')));
 // 127.0.0.1:3000/test              不转发
 
 app.get('*',function(req,res){
-    req.sendFile(path.resolve(__dirname,'./public/','index.html'));
+    res.sendFile(path.resolve(__dirname,'./public/','index.html'));
 })
 
 app.listen(PORT,function(){

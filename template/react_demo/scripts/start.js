@@ -1,6 +1,6 @@
 const WebpackDevServer = require("webpack-dev-server");
 const webpack = require("webpack");
-const execSync = require('child_process').execSync;
+const exec = require('child_process').exec;
 
 const paths = require('../config/path');
 const webpackConfig = require('../config/webpack.config.dev')
@@ -25,6 +25,12 @@ server.listen(DEFAULT_PORT, HOST, err => {
         console.log(err);
     }
     console.log('启动服务...');
-    
-    execSync(`open http://localhost:${DEFAULT_PORT}`);
+    if (process.platform === 'win32') {
+        exec(`explorer http://localhost:${DEFAULT_PORT}`);
+        return ;
+    }
+    if(process.platform === 'darwin'){
+        exec(`open http://localhost:${DEFAULT_PORT}`);
+        return ;
+    }  
 });
