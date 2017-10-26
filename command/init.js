@@ -1,3 +1,5 @@
+#!/usr/bin/env node --harmony
+'use strict'
 const path = require('path');
 const fs = require('fs-extra');
 const co = require('co'); 
