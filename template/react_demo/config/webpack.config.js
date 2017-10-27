@@ -27,7 +27,8 @@ const config = {
                             "include": ["transform-es2015-arrow-functions", "es6.map"],
                             "exclude": ["transform-regenerator", "es6.set"]
                           }]
-                      ]
+                      ],
+                      plugins: [require('babel-plugin-transform-object-rest-spread')]
                 }
             }]
         },

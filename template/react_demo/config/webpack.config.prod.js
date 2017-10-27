@@ -12,7 +12,7 @@ module.exports = {
         path: paths.appBuild + '/public',
         filename: 'static/js/[name].[chunkhash:8].js',
         chunkFilename: "static/js/[name].[chunkhash:8].js",
-        publicPath:'./'
+        publicPath:'/'
     }),
     module:{
         rules:[
