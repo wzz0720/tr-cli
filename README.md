@@ -15,7 +15,6 @@ cd my-app
 <pre>
 ├──myapp
 │├──.babelrc
-│├──README.md
 │├──config
 ││├──path.js
 ││├──webpack.config.dev.js
@@ -34,23 +33,14 @@ cd my-app
 ││├──App.js
 ││├──common
 ││├──components
-│││├──Home
-││││├──Container.js
-││││├──Header.js
-││││├──HeaderAction.js
-││││├──HeaderRedux.js
 ││├──images
-│││├──test.png
 ││├──redux
 │││├──configStore.js
 │││├──reducers.js
 ││├──routes
 │││├──index.js
 ││├──styles
-│││├──index.scss
-│││├──rest.css
 ││├──utils
-│││├──Tool.js
 ││├──views
 │││├──Home.js
 │││├──HomeRedux.js
@@ -58,3 +48,16 @@ cd my-app
 │├──test
 ││├──index.js
 </pre>
+### 运行
+<p>首先运行预打包</p>
+<code>npm run start:pre</code>
+<p>开发调试</p>
+<code>npm start</code>
+<p>运行测试</p>
+<code>npm run test</code>
+<p>上线打包</p>
+<code>npm run build</code>
+
+### 其他
+<p>1、代理配置在package.json中proxy字段</p>
+<p>2、webpack配置在/config/目录中，*.dev.js为开发环境配置，*.dll.js为预打包配置，*.prod.js为上线生产打包</p>

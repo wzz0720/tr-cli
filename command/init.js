@@ -104,6 +104,7 @@ function init(){
     creatApp(
       obj.appName,
       obj.root,
+      obj.useDefaultPackage,
       obj.templatePath,
       obj.version
     )
@@ -120,7 +121,7 @@ function configPrompt(){
     // 分步接收用户输入的参数 
     let appName = yield prompt('name:')
     let version = yield prompt('version[1.0.0]:')
-    // let useDefaultWebpack = yield prompt('use default webpack:[y/n]')
+    let useDefaultPackage = yield prompt('install default npm package:[Y/N]')
 
     const root = path.resolve(appName);
     const templatePath = path.join(__dirname, '../template');
@@ -128,6 +129,7 @@ function configPrompt(){
     return {
       appName,
       version,
+      useDefaultPackage,
       root,
       templatePath
     }
@@ -136,7 +138,7 @@ function configPrompt(){
 }
 
 //创建App
-function creatApp(appName,root,templatePath,version){
+function creatApp(appName,root,useDefaultPackage,templatePath,version){
   checkAppName(appName,root);
   //创建文件
   fs.ensureDirSync(appName);
@@ -149,12 +151,12 @@ function creatApp(appName,root,templatePath,version){
     //更改工作区到当前目录下
     process.chdir(root);
     console.log(`在 ${chalk.green(root)} 创建了一个APP.`);
-    run(appName,root,templatePath,version);
+    run(appName,root,useDefaultPackage,templatePath,version);
   });  
 }
 
 //运行
-function run(appName,root,templatePath,version){
+function run(appName,root,useDefaultPackage,templatePath,version){
   getPackage(appName,version).then(function(packageConfig){
     //将设置好的package写入package.json
     fs.writeFileSync(
@@ -163,11 +165,14 @@ function run(appName,root,templatePath,version){
     );
   }).then(function(){
       //导入packages
-      install().then(function(){
+      install(useDefaultPackage).then(function(){
         //  _length 传入到 readDir 为了绘制tree 美观，记录目录结构的长度
         const _length = root.split(sep).length; 
         readDir(root,_length);
         console.log('查找目录' + chalk.cyan(' cd ' + appName ));
+        if(useDefaultPackage !== "Y"){
+          console.log('运行' + chalk.cyan(' npm install ') + '导入包');
+        }
         console.log('运行' + chalk.cyan(' npm run start:pre ') + '预打包');
         console.log('运行' + chalk.cyan(' npm start ') + '启动开发环境');
         console.log('运行' + chalk.cyan(' npm run build ') + '打包生成上线包');
@@ -204,23 +209,24 @@ function getDependencies(){
 }
 
 //导入package包
-function install() {
+function install(useDefaultPackage) {
   return new Promise((resolve, reject) => {
     let command = 'npm';
     let args = ['install'];
-
-    const child = spawn(command, args, { stdio: 'inherit' });
-
-    child.on('close', code => {
-      if (code !== 0) {
-        reject({
-          command: `${command} ${args.join(' ')}`,
-        });
-        return;
-      }
+    if(useDefaultPackage === "Y"){
+      const child = spawn(command, args, { stdio: 'inherit' });
+      child.on('close', code => {
+        if (code !== 0) {
+          reject({
+            command: `${command} ${args.join(' ')}`,
+          });
+          return;
+        }
+        resolve();
+      });
+    }else{
       resolve();
-    });
-    //resolve();
+    }
   });
 }
 

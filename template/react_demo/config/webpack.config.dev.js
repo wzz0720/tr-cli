@@ -17,11 +17,30 @@ module.exports = {
     }),
     module:{
         rules:[
-            webpackConfig.moduleLoaders.js,
-            Object.assign({
-                use: ['style-loader','css-loader','sass-loader']
-            },webpackConfig.moduleLoaders.css),
-            webpackConfig.moduleLoaders.images
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /^node_modules$/,
+                enforce: 'pre',
+                use: [
+                  {
+                    options: {
+                      formatter: require('eslint-friendly-formatter'),
+                      eslintPath: require.resolve('eslint'),
+                      
+                    },
+                    loader: require.resolve('eslint-loader'),
+                  },
+                ]
+            },
+            {
+                oneOf:[
+                    webpackConfig.moduleLoaders.js,
+                    Object.assign({
+                        use: ['style-loader','css-loader','sass-loader']
+                    },webpackConfig.moduleLoaders.css),
+                    webpackConfig.moduleLoaders.images
+                ]
+            }
         ]
     },
     plugins: [

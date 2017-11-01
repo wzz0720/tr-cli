@@ -8,6 +8,7 @@ module.exports = {
     contentBase: paths.appPublic,
     watchContentBase: true,
     hot: true,
+    host: process.env.HOST || '0.0.0.0',
     historyApiFallback: {
         disableDotRule: true,
     },
