@@ -15,8 +15,6 @@ module.exports = {
     compress: true,
     watchOptions: {
         ignored: /node_modules/,
-    },
-    watchOptions: {
         aggregateTimeout: 300,
         poll: 1000
     },

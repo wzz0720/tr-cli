@@ -2,7 +2,6 @@ const WebpackDevServer = require("webpack-dev-server");
 const webpack = require("webpack");
 const exec = require('child_process').exec;
 
-const paths = require('../config/path');
 const webpackConfig = require('../config/webpack.config.dev')
 const WebpackDevServerConfig = require('../config/webpackDevServer.config')
 
@@ -10,7 +9,7 @@ const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 
 webpackConfig.entry.main.unshift(
-    `webpack-dev-server/client?http://localhost:${DEFAULT_PORT}/`,  //node里的webpack-dev-server配置没有inline，所以采用这个种形式
+    `webpack-dev-server/client?http://${HOST}:${DEFAULT_PORT}/`,  //node里的webpack-dev-server配置没有inline，所以采用这个种形式
     "webpack/hot/dev-server"                                        //HMR配置
 );
 
@@ -26,11 +25,11 @@ server.listen(DEFAULT_PORT, HOST, err => {
     }
     console.log('启动服务...');
     if (process.platform === 'win32') {
-        exec(`explorer http://localhost:${DEFAULT_PORT}`);
+        exec(`explorer http://${HOST}:${DEFAULT_PORT}`);
         return ;
     }
     if(process.platform === 'darwin'){
-        exec(`open http://localhost:${DEFAULT_PORT}`);
+        exec(`open http://${HOST}:${DEFAULT_PORT}`);
         return ;
     }  
 });

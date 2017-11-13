@@ -1,4 +1,12 @@
 # 版本迭代
+## V1.1.3
+ * **Bug Fix**
+   * dll预打包加入babel配置
+   * 服务启动时HOST可配置
+   * 外网访问，热加载请求报错
+## V1.1.2
+ * **Bug Fix**
+   * 修改webpackDevServer配置
 ## V1.1.0
  * **Improvement**
    * 加入webpack-bundle-analyzer分析包体依赖
@@ -6,7 +14,6 @@
    * 打包时remove上次打包文件
    * 项目gitignore文件配置
    * 开发环境eslint检查
-## V1.0.3  
 ## V1.0.4  
  * **Bug Fix**
    * 加入了object-rest-spread插件

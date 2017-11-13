@@ -3,6 +3,7 @@ var path = require('path');
 
 const paths = require('../config/path');
 const deps = require('../package').dependencies;
+const webpackConfig = require('../config/webpack.config');
 
 module.exports = {
     devtool:'cheap-source-map',
@@ -13,6 +14,11 @@ module.exports = {
         path: paths.appDist,
         filename: '[name].dll.js',
         library: '[name]_library',
+    },
+    module:{
+        rules:[
+            webpackConfig.moduleLoaders.js
+        ]
     },
     plugins: [
         new webpack.DllPlugin({
