@@ -1,8 +1,16 @@
 # 版本迭代
-## V1.1.3
+## V1.2.0
+ * **Improvement**
+   * 新增测试环境，预发布环境，正式环境配置
+   * 新增babel-plugin-transform-object-assign
+## V1.1.4
  * **Bug Fix**
+   * webpack配置中babel-loader加入useBuiltIns配置
+## V1.1.3
+ * **Improvement**
    * dll预打包加入babel配置
    * 服务启动时HOST可配置
+ * **Bug Fix**
    * 外网访问，热加载请求报错
 ## V1.1.2
  * **Bug Fix**
@@ -15,7 +23,7 @@
    * 项目gitignore文件配置
    * 开发环境eslint检查
 ## V1.0.4  
- * **Bug Fix**
+ * **Improvement**
    * 加入了object-rest-spread插件
 ## V1.0.3  
  * **Bug Fix**

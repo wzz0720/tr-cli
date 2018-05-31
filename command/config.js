@@ -12,8 +12,10 @@ config.packageConfig = {
   "scripts": {
     "start:pre": "node scripts/start.pre.js",
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "n":"node scripts/node.js",
+    "build": "node scripts/build.js prod",
+    "uat": "node scripts/build.js uat",
+    "test-b": "node scripts/build.js test",
+    "n": "node scripts/node.js",
     "test": "mocha  --compilers js:babel-core/register test"
   },
   "author": "",
@@ -25,6 +27,7 @@ config.packageConfig = {
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "chai": "^4.1.2",
     "chalk": "^2.1.0",

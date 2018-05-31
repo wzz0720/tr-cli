@@ -44,6 +44,11 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+          'process.env': {
+            PATH_TYPE: JSON.stringify('dev')
+          }
+        }),
         new webpack.DllReferencePlugin({
             context: path.resolve(__dirname, '../dist'),
 			manifest: require(path.resolve(paths.appDist,'vendor-manifest.json')),
